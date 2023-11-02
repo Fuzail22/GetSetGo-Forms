@@ -1,0 +1,320 @@
+/* Container for the entire form builder */
+.FormBuilderContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+h2 {
+  text-align: center;
+  color: #514e7f;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+h2 span {
+  font-size: 28px;
+}
+/* Question containers */
+.QuestionContainer {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Text input and button within question containers */
+.QuestionContainer input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.QuestionContainer button {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Adder and DragDrop containers */
+.CategoriesQuestion .Adder,
+.CategoriesQuestion .DragDrop,
+.CategoriesQuestion .ListViewer,
+.ClozeQuestion,
+.CompreQuestion {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styling for specific elements or components can be added as needed */
+
+/* Create Form button */
+button {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Create Form button hover effect */
+button:hover {
+  background-color: #3c3a5f;
+}
+
+/* Styling for individual draggable items */
+.DragDropItem {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Add shadow on hover for individual items */
+.DragDropItem:hover {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: grab;
+}
+
+/* Styling for the grab handle (if needed) */
+.DragHandle {
+  cursor: grab;
+  padding: 5px;
+}
+
+/* Optional: Add animation for smoother drag-and-drop */
+.DragDropItem.react-beautiful-dnd-draggable--is-dragging {
+  transition: box-shadow 0.2s ease;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Add styling for the empty list message */
+.DragDropEmptyMessage {
+  color: #888;
+  text-align: center;
+  font-style: italic;
+}
+/* ListViewer container */
+.ListViewer {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Styling for individual items in ListViewer */
+.ListViewerItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+/* Styling for the text and select elements */
+.ListViewerItem span {
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.ListViewerItem select {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Styling for the "Confirm Category Question" button */
+.ConfirmButton {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* "Confirm Category Question" button hover effect */
+.ConfirmButton:hover {
+  background-color: #3c3a5f;
+}
+
+/* ClozeQuestion container */
+.ClozeQuestion {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Input field for the cloze question */
+.ClozeInput {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+/* "Add Question" button */
+.AddQuestionButton {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Cloze question content area */
+.ClozeContent {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: text;
+  font-size: 14px;
+}
+
+/* Blank selection confirmation area */
+.BlankConfirmation {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Buttons for confirming or rejecting the blank */
+.ConfirmBlankButton {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.RejectBlankButton {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Confirm Cloze Question button */
+.ConfirmClozeButton {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* "Confirm Cloze Question" button hover effect */
+.ConfirmClozeButton:hover {
+  background-color: #3c3a5f;
+}
+/* CompreQuestion container */
+.CompreQuestion {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Textarea for the passage */
+.PassageTextarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* "Add Para" button */
+.AddParaButton {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Textarea for the question */
+.QuestionTextarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* "Add Choice" button */
+.AddChoiceButton {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+/* "Save Question" button */
+.SaveQuestionButton {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* "Save Question" button hover effect */
+.SaveQuestionButton:hover {
+  background-color: #3c3a5f;
+}
