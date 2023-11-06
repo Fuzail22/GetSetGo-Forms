@@ -5,8 +5,11 @@ import ListViewer from "./ListViewer";
 import ClozeQuestion from "./ClozeQuestion";
 import MCQQuestionBuilder from "./MCQQuestionBuilder";
 import { addForm } from "../features/form/formSlice";
-import { useRef } from "react";
+import { addSelectedForm } from "../features/form/SelectedFormSlice";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 function FormBuilder() {
+  const [forms, setForms] = useState([]);
   const testName = useRef(null);
   const categories = useSelector((state) => state.CategoryReducer.categories);
   const items = useSelector((state) => state.ItemReducer.items);
@@ -18,8 +21,25 @@ function FormBuilder() {
   const formName = useSelector((state) => state.FormReducer.form.name);
   const formId = useSelector((state) => state.FormReducer.form.id);
   const dispatch = useDispatch();
+  console.log("forms is ", forms);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/forms")
+      .then((response) => setForms(response.data));
+  }, []);
+  const handleChange = (event) => {
+    dispatch(addSelectedForm(event.target.value));
+  };
   return (
     <div className="FormBuilderContainer">
+      <a href="/form">Go to Form</a>
+      <select onChange={handleChange}>
+        {forms.map((log, index) => (
+          <option key={log._id} value={log._id}>
+            {log.name}
+          </option>
+        ))}
+      </select>
       <h2>
         Welcome to <span>GetSetGo</span> Forms
       </h2>
@@ -50,10 +70,9 @@ function FormBuilder() {
       <button
         onClick={() => {
           const formData = {
-            test: {
-              id: formId,
-              name: formName,
-            },
+            _id: formId,
+            name: formName,
+            completed: false,
             category: {
               categories: categories,
               items: items,
@@ -68,7 +87,11 @@ function FormBuilder() {
               questions: questions,
             },
           };
-          console.log("formdata created");
+          console.log(formData);
+          axios
+            .post("http://localhost:5000/", formData)
+            .then((response) => console.log(response))
+            .catch((err) => console.log(err));
         }}
       >
         Create Form

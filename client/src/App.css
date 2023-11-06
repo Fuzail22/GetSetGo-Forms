@@ -318,3 +318,236 @@ button:hover {
 .SaveQuestionButton:hover {
   background-color: #3c3a5f;
 }
+/* Styling for the whole form category component */
+.horizontal-list {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.category {
+  margin: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* Styling for the draggable items */
+.item {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styling for the Droppable categories */
+.item-list {
+  min-height: 100px;
+  border: 2px dashed #aaa;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+/*styling for cloze droppable*/
+.item-listcloze {
+  min-height: 20px;
+  border: 2px dashed #aaa;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+  max-width: 100px;
+  /* display: flex;
+  flex-direction: column; */
+}
+/* Styling for the category titles */
+.category h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Styling for the placeholder during drag-and-drop */
+/* You can customize the placeholder as needed */
+.item-list > div {
+  border: 1px dashed #aaa;
+  margin: 5px;
+  padding: 10px;
+}
+/* Test form container */
+.TestForm {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+.TestForm h1 {
+  background-color: #514e7f;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  font-size: 24px;
+}
+/* Header styling */
+.TestHeader {
+  background-color: #514e7f;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Form sections styling */
+.FormSection {
+  margin: 20px 0;
+}
+
+/* "Submit Test" button styling */
+.SubmitButton {
+  background-color: #514e7f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* "Submit Test" button hover effect */
+.SubmitButton:hover {
+  background-color: #3c3a5f;
+}
+/* FormMCQ container */
+.FormMCQ {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+.FormMCQ h1 {
+  background-color: #514e7f;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Passage styling */
+.FormMCQ h2 {
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+/* Passage text styling */
+.FormMCQ p {
+  font-size: 16px;
+}
+
+/* MCQ questions and choices styling */
+.FormMCQ div {
+  margin: 10px 0;
+}
+
+/* Radio button styling */
+.FormMCQ input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Label styling for radio buttons */
+.FormMCQ label {
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* Checked radio button style */
+.FormMCQ input[type="radio"]:checked + label {
+  font-weight: bold;
+  color: #514e7f;
+}
+.test-completed-animation {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.test-completed-animation.animate {
+  display: flex;
+  animation: fadeInOut 5s;
+  opacity: 1;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.checkmark {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #fff;
+}
+
+.checkmark-stem {
+  width: 4px;
+  height: 25px;
+  background-color: #4caf50;
+  position: absolute;
+  display: block;
+  transform: rotate(45deg);
+  margin-left: 22px;
+  margin-top: 29px;
+}
+
+.checkmark-kick {
+  width: 4px;
+  height: 25px;
+  background-color: #4caf50;
+  position: absolute;
+  display: block;
+  transform: rotate(-45deg);
+  margin-left: 22px;
+  margin-top: 29px;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}

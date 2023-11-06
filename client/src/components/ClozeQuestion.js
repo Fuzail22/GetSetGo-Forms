@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addCloze } from "../features/cloze/clozeSlice";
 function ClozeQuestion() {
   const [question, setQuestion] = useState("");

@@ -4,10 +4,8 @@ import { useDispatch } from "react-redux";
 let answer = {};
 function ListViewer(props) {
   const dispatch = useDispatch();
-  const items = props.items;
-  // console.log("items length ", items.length);
-
-  const categories = props.categories;
+  let items = props.items;
+  let categories = props.categories;
   const [showConfirm, setShowConfirm] = useState(false);
   useMemo(() => setShowConfirm(false), [items]);
   useMemo(() => {
@@ -46,6 +44,8 @@ function ListViewer(props) {
             let temp = { ...answer }; //to avoid object is not extensible
             dispatch(addAnswer(temp));
             setShowConfirm(false);
+            items = [];
+            categories = [];
           }}
         >
           Confirm Category Question
