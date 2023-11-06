@@ -7,6 +7,7 @@ import MCQQuestionBuilder from "./MCQQuestionBuilder";
 import { addForm } from "../features/form/formSlice";
 import { addSelectedForm } from "../features/form/SelectedFormSlice";
 import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 function FormBuilder() {
   const [forms, setForms] = useState([]);
@@ -21,7 +22,10 @@ function FormBuilder() {
   const formName = useSelector((state) => state.FormReducer.form.name);
   const formId = useSelector((state) => state.FormReducer.form.id);
   const dispatch = useDispatch();
-  console.log("forms is ", forms);
+  const navigate = useNavigate();
+  const selectedFormId = useSelector(
+    (state) => state.SelectedFormReducer.selectedForm.id
+  );
   useEffect(() => {
     axios
       .get("http://localhost:5000/forms")
@@ -32,7 +36,6 @@ function FormBuilder() {
   };
   return (
     <div className="FormBuilderContainer">
-      <a href="/form">Go to Form</a>
       <select onChange={handleChange}>
         {forms.map((log, index) => (
           <option key={log._id} value={log._id}>
@@ -40,6 +43,14 @@ function FormBuilder() {
           </option>
         ))}
       </select>
+      <button
+        className="openTest"
+        onClick={() => {
+          navigate(`form/${selectedFormId}`);
+        }}
+      >
+        Open Test
+      </button>
       <h2>
         Welcome to <span>GetSetGo</span> Forms
       </h2>

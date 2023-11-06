@@ -29,8 +29,12 @@ app.get("/forms", (req, res) => {
     });
 });
 app.get("/form/:id", (req, res) => {
-  Form.find({ _id: req.params[id] })
-    .then((response) => console.log("Form fetch succes\n", response))
+  const id = req.params["id"];
+  Form.find({ _id: id })
+    .then((response) => {
+      res.status(201).json(response);
+      console.log("fetch successful for form id: ", id);
+    })
     .catch((err) =>
       res
         .status(500)

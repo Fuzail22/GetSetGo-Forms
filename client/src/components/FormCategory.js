@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-const FormCategory = () => {
+const FormCategory = ({ data }) => {
+  console.log("data.items is ", data.items);
   const [items, setItems] = useState([
     "Item 1",
     "Item 2",

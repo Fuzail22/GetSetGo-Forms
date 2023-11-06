@@ -9,7 +9,7 @@ export const selectedFormSlice = createSlice({
   initialState,
   reducers: {
     addSelectedForm: (state, action) => {
-      state.selectedForm.name = action.payload;
+      state.selectedForm.id = action.payload;
     },
   },
 });

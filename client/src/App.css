@@ -534,6 +534,11 @@ button:hover {
   margin-top: 29px;
 }
 
+.FormBuilderContainer .openTest {
+  font-size: 15px;
+  padding: 8px;
+  margin-left: 5px;
+}
 @keyframes fadeInOut {
   0% {
     opacity: 0;

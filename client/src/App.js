@@ -8,12 +8,11 @@ import { useSelector } from "react-redux";
 function App() {
   const formId = useSelector((state) => state.SelectedFormReducer.selectedForm);
   console.log("app ", formId);
-  const data = formId.name;
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<FormBuilder />} />
-        <Route path="/Form" element={<Form data={data} />} />
+        <Route path="/form/:id" element={<Form />} />
         <Route path="/TestComplete" element={<TestComplete show="true" />} />
       </Routes>
     </BrowserRouter>
