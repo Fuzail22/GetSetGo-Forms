@@ -11,12 +11,9 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="GetSetGo-Forms/" element={<FormBuilder />} />
-        <Route path="GetSetGo-Forms/form/:id" element={<Form />} />
-        <Route
-          path="GetSetGo-Forms/testComplete"
-          element={<TestComplete show="true" />}
-        />
+        <Route path="/" element={<FormBuilder />} />
+        <Route path="/form/:id" element={<Form />} />
+        <Route path="/testComplete" element={<TestComplete show="true" />} />
       </Routes>
     </HashRouter>
   );
