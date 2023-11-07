@@ -30,6 +30,10 @@ app.get("/forms", (req, res) => {
 });
 app.get("/form/:id", (req, res) => {
   const id = req.params["id"];
+  if (id === undefined) {
+    res.status(400).json("Kindly send a form id");
+    return;
+  }
   Form.find({ _id: id })
     .then((response) => {
       res.status(201).json(response);
@@ -46,11 +50,10 @@ app.post("/", (req, res) => {
   Form.create(req.body)
     .then((response) => {
       res.status(200).json("Form Created Successfully");
+      console.log("Form Created Successfully");
     })
     .catch((err) => {
-      res
-        .status(500)
-        .json("The following error occured during form creation: ", err);
+      res.status(500).json(err);
     });
 });
 app.listen(PORT, () => console.log("Server started at port no:", PORT));

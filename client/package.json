@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://fuzail22.github.io/GetSetGo-Forms",
+  "homepage": "https://fuzail22.github.io/GetSetGo-Forms/#",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",

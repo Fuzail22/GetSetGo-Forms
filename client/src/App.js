@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Form from "./components/Form";
 import FormBuilder from "./components/FormBuilder";
 import TestComplete from "./components/TestComplete";
@@ -9,16 +9,16 @@ function App() {
   const formId = useSelector((state) => state.SelectedFormReducer.selectedForm);
   console.log("app ", formId);
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="GetSetGo-Forms/" element={<FormBuilder />} />
         <Route path="GetSetGo-Forms/form/:id" element={<Form />} />
         <Route
-          path="GetSetGo-Forms/TestComplete"
+          path="GetSetGo-Forms/testComplete"
           element={<TestComplete show="true" />}
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

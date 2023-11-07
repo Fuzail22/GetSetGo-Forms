@@ -40,11 +40,11 @@ function Form() {
         <button
           className="SubmitButton"
           onClick={() => {
-            navigate("/TestComplete");
-            axios
-              .put("/submitTest")
-              .then((response) => console.log(response))
-              .catch((err) => console.log(err));
+            navigate("testComplete");
+            // axios
+            //   .put("/submitTest")
+            //   .then((response) => console.log(response))
+            //   .catch((err) => console.log(err));
           }}
         >
           Submit Test
