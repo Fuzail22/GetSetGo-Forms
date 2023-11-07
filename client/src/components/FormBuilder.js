@@ -130,6 +130,7 @@ function FormBuilder() {
             .then((response) => {
               console.log(response);
               showSuccessMessage();
+              setTimeout(() => window.location.reload(true), 2000);
             })
             .catch((err) => {
               console.log(err);
