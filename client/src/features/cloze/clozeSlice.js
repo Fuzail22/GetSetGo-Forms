@@ -11,6 +11,7 @@ export const clozeSlice = createSlice({
     addCloze: (state, action) => {
       state.cloze.question = action.payload.question;
       state.cloze.blanks = action.payload.blanks;
+      state.cloze.blankQuestion = action.payload.blankQuestion;
     },
   },
 });

@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const FormCategory = ({ data }) => {
-  console.log("data.items is ", data.items);
-  const [items, setItems] = useState([
-    "Item 1",
-    "Item 2",
-    "Item 3",
-    "Item 4",
-    "Item 5",
-  ]);
-  const [categories, setCategories] = useState({
-    c1: [],
-    c2: [],
+  console.log("data.items is ", data.categories);
+  const newCategories = {};
+  const newItems = [];
+  const categoriesArray = data.categories;
+  categoriesArray.forEach((category) => {
+    newCategories[category.name] = [];
   });
+  // console.log("new cat is ", newCategories);
+  const itemsArray = data.items;
+  itemsArray.forEach((item) => newItems.push(item.name));
+
+  const [items, setItems] = useState(newItems);
+  const [categories, setCategories] = useState(newCategories);
   console.log(categories);
   const onDragEnd = (result) => {
     if (!result.destination) return;
