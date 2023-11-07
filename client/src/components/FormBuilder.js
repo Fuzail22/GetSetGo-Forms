@@ -28,7 +28,7 @@ function FormBuilder() {
   );
   useEffect(() => {
     axios
-      .get("http://localhost:5000/forms")
+      .get("https://getsetgoforms.onrender.com/forms")
       .then((response) => setForms(response.data));
   }, []);
   const handleChange = (event) => {
@@ -100,7 +100,7 @@ function FormBuilder() {
           };
           console.log(formData);
           axios
-            .post("http://localhost:5000/", formData)
+            .post("https://getsetgoforms.onrender.com/", formData)
             .then((response) => console.log(response))
             .catch((err) => console.log(err));
         }}

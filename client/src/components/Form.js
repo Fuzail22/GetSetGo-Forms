@@ -13,7 +13,7 @@ function Form() {
   console.log("formid is ", formId);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/form/${formId}`)
+      .get(`https://getsetgoforms.onrender.com/form/${formId}`)
       .then((response) => {
         // console.log("response ", response.data);
         setFormDetails(response.data[0]);
