@@ -6,6 +6,7 @@ import TestComplete from "./components/TestComplete";
 import "./App.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import LoadingOverlay from "./components/LoadingOverlay";
 function App() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -24,13 +25,16 @@ function App() {
   const formId = useSelector((state) => state.SelectedFormReducer.selectedForm);
   // console.log("app ", formId);
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<FormBuilder />} />
-        <Route path="/form/:id" element={<Form />} />
-        <Route path="/testComplete" element={<TestComplete show="true" />} />
-      </Routes>
-    </HashRouter>
+    <>
+      {loading && <LoadingOverlay />}
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<FormBuilder />} />
+          <Route path="/form/:id" element={<Form />} />
+          <Route path="/testComplete" element={<TestComplete show="true" />} />
+        </Routes>
+      </HashRouter>
+    </>
   );
 }
 

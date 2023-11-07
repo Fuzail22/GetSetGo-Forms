@@ -71,6 +71,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin: 2px;
 }
 
 /* Create Form button hover effect */
@@ -538,6 +539,11 @@ button:hover {
   font-size: 15px;
   padding: 8px;
   margin-left: 5px;
+}
+
+.FormBuilderContainer h3 {
+  color: #514e7f;
+  text-align: center;
 }
 @keyframes fadeInOut {
   0% {

@@ -28,6 +28,7 @@ function FormBuilder() {
   const selectedFormId = useSelector(
     (state) => state.SelectedFormReducer.selectedForm.id
   );
+
   const [isSuccessVisible, setIsSuccessVisible] = useState(false);
   function showSuccessMessage() {
     setIsSuccessVisible(true);
@@ -73,6 +74,7 @@ function FormBuilder() {
       <h2>
         Welcome to <span>GetSetGo</span> Forms
       </h2>
+
       <div className="FormQuestion QuestionContainer">
         <input type="text" placeholder="Enter Test Name" ref={testName} />
         <button
@@ -84,7 +86,9 @@ function FormBuilder() {
           Confirm Test Name
         </button>
       </div>
+      <h2>{formName}</h2>
       <div className="CategoriesQuestion QuestionContainer">
+        <h3>Category Question</h3>
         <Adder name="Category" />
         <DragDrop name="Category" feature={categories} />
         <Adder name="Item" />
@@ -92,9 +96,11 @@ function FormBuilder() {
         <ListViewer categories={categories} items={items} />
       </div>
       <div className="ClozeQuestion QuestionContainer">
+        <h3>Cloze Question</h3>
         <ClozeQuestion />
       </div>
       <div className="CompreQuestion QuestionContainer">
+        <h3>Comprehension Question</h3>
         <MCQQuestionBuilder />
       </div>
       <button
