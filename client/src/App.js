@@ -11,9 +11,18 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<FormBuilder />} />
-        <Route path="/form/:id" element={<Form />} />
-        <Route path="/TestComplete" element={<TestComplete show="true" />} />
+        <Route
+          path="https://fuzail22.github.io/GetSetGo-Forms/"
+          element={<FormBuilder />}
+        />
+        <Route
+          path="https://fuzail22.github.io/GetSetGo-Forms/form/:id"
+          element={<Form />}
+        />
+        <Route
+          path="https://fuzail22.github.io/GetSetGo-Forms/TestComplete"
+          element={<TestComplete show="true" />}
+        />
       </Routes>
     </BrowserRouter>
   );
