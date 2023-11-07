@@ -1,15 +1,26 @@
 import { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addMCQ, addPara } from "../features/MCQ/mcqSlice";
 const MCQQuestionBuilder = () => {
   const [question, setQuestion] = useState("");
   const [choices, setChoices] = useState(["", ""]);
   // console.log(question);
   // console.log(choices);
+  const para = useSelector((state) => state.MCQReducer.mcq.para);
+  const questions = useSelector((state) => state.MCQReducer.mcq.questions);
+  // const [para, setPara] = useState(
+  //   useSelector((state) => state.MCQReducer.mcq.para)
+  // );
+  // console.log("para ", para);
+  // const [questions, setQuestions] = useState(
+  //   useSelector((state) => state.MCQReducer.mcq.questions)
+  // );
+
   const dispatch = useDispatch();
   // const output = useSelector((state) => state.MCQReducer.mcq);
   // console.log("output is ", output);
   const inputPara = useRef(null);
+  const [selectedChoices, setSelectedChoices] = useState([]);
   function addParaHandler() {
     dispatch(addPara(inputPara.current.value));
     inputPara.current.value = "";
@@ -38,6 +49,11 @@ const MCQQuestionBuilder = () => {
     setQuestion(e.target.value);
   };
 
+  const handleChoiceSelect = (questionIndex, choiceIndex) => {
+    const updatedChoices = [...selectedChoices];
+    updatedChoices[questionIndex] = choiceIndex;
+    setSelectedChoices(updatedChoices);
+  };
   const renderChoices = choices.map((choice, index) => (
     <div key={index}>
       <input
@@ -85,6 +101,36 @@ const MCQQuestionBuilder = () => {
       >
         Save Question
       </button>
+      {para && (
+        <div className="FormMCQ">
+          <h1>Comprehension Question</h1>
+          <h2> Passage:</h2>
+          <p>{para}</p>
+          <h2>Multiple Choice Questions:</h2>
+          {questions.map((question, questionIndex) => (
+            <div key={questionIndex}>
+              <p>{question.question}</p>
+
+              {question.choices.map((choice, choiceIndex) => (
+                <div key={choiceIndex}>
+                  <label>
+                    <input
+                      type="radio"
+                      name={`question-${questionIndex}`}
+                      value={choice}
+                      checked={selectedChoices[questionIndex] === choiceIndex}
+                      onChange={() =>
+                        handleChoiceSelect(questionIndex, choiceIndex)
+                      }
+                    />
+                    {choice}
+                  </label>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,13 +1,28 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Form from "./components/Form";
 import FormBuilder from "./components/FormBuilder";
 import TestComplete from "./components/TestComplete";
 import "./App.css";
 import { useSelector } from "react-redux";
+import axios from "axios";
 function App() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get("https://getsetgoforms.onrender.com/")
+      .then((response) => {
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(
+          "The following error occured while fetching dockets:Please Referesh ",
+          err
+        );
+      });
+  }, []);
   const formId = useSelector((state) => state.SelectedFormReducer.selectedForm);
-  console.log("app ", formId);
+  // console.log("app ", formId);
   return (
     <HashRouter>
       <Routes>

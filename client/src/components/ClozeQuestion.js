@@ -7,7 +7,6 @@ function ClozeQuestion() {
   const [blank, setBlank] = useState(false);
   const [selectedText, setSelectedText] = useState("");
   const [selectedIndex, setSelectedIndex] = useState("");
-  let sel = "";
   const [quesArr, setQuesArr] = useState([]);
   let blankPositions = useMemo(() => [], [quesArr]);
   const dispatch = useDispatch();
@@ -16,13 +15,13 @@ function ClozeQuestion() {
   // console.log(output);
   function addQuestionHandler() {
     const ques = inputQues.current.value;
-    console.log(ques);
+    // console.log(ques);
     inputQues.current.value = "";
     setQuesArr(ques.split(" "));
     setQuestion(ques);
     setBlankQuestion(ques.split(" "));
   }
-  console.log("blankq ", blankQuestion);
+  // console.log("blankq ", blankQuestion);
   return (
     <div className="ClozeQuestion">
       <input
@@ -57,7 +56,7 @@ function ClozeQuestion() {
             {quesArr.map((qu, index) => (
               <span
                 onClick={() => {
-                  console.log("Selected index:", index);
+                  // console.log("Selected index:", index);
                   setSelectedText(quesArr[index]);
                   setBlank(true);
                   setSelectedIndex(index);
@@ -84,10 +83,10 @@ function ClozeQuestion() {
             className="ConfirmBlankButton"
             onClick={() => {
               const index = selectedIndex;
-              console.log("index is", index);
+              // console.log("index is", index);
               if (index !== -1) {
                 blankPositions.push(index);
-                console.log(typeof blankQuestion);
+                // console.log(typeof blankQuestion);
                 const temp = [...blankQuestion];
                 temp.splice(index, 1, "____");
                 setBlankQuestion(temp);
@@ -99,7 +98,7 @@ function ClozeQuestion() {
                   "selected text not found make sure to not select empty spaces are two words together ",
                   selectedText
                 );
-              console.log("blanks are ", blankPositions);
+              // console.log("blanks are ", blankPositions);
               setSelectedText("");
               setBlank(false);
             }}

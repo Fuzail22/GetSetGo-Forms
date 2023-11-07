@@ -1,22 +1,23 @@
 import { useState } from "react";
 
-const FormMCQ = () => {
-  const data = {
-    comprehension: {
-      para: "There lived a lion and peacock",
-      questions: [
-        {
-          question: "animals in the passage?",
-          choices: ["lion", "zebra"],
-        },
-        {
-          question: "what lived with lion",
-          choices: ["tiger", "peacock"],
-        },
-      ],
-    },
-  };
-  const { para, questions } = data.comprehension;
+function FormMCQ({ data }) {
+  // const data = {
+  //   comprehension: {
+  //     para: "There lived a lion and peacock",
+  //     questions: [
+  //       {
+  //         question: "animals in the passage?",
+  //         choices: ["lion", "zebra"],
+  //       },
+  //       {
+  //         question: "what lived with lion",
+  //         choices: ["tiger", "peacock"],
+  //       },
+  //     ],
+  //   },
+  // };
+  console.log(data);
+  const { para, questions } = data;
 
   const [selectedChoices, setSelectedChoices] = useState([]);
 
@@ -56,6 +57,6 @@ const FormMCQ = () => {
       ))}
     </div>
   );
-};
+}
 
 export default FormMCQ;

@@ -36,14 +36,15 @@ app.get("/form/:id", (req, res) => {
   }
   Form.find({ _id: id })
     .then((response) => {
-      res.status(201).json(response);
-      console.log("fetch successful for form id: ", id);
+      if (response) {
+        res.status(201).json(response);
+        console.log("fetch successful for form id: ", id);
+        return;
+      }
+      res.status(400).json(response);
+      console.log("No such form id found");
     })
-    .catch((err) =>
-      res
-        .status(500)
-        .json("The following error occured during form fetch: ", err)
-    );
+    .catch((err) => res.status(500).json(err));
 });
 
 app.post("/", (req, res) => {

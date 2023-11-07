@@ -15,7 +15,7 @@ const FormCategory = ({ data }) => {
 
   const [items, setItems] = useState(newItems);
   const [categories, setCategories] = useState(newCategories);
-  console.log(categories);
+  // console.log(categories);
   const onDragEnd = (result) => {
     if (!result.destination) return;
 

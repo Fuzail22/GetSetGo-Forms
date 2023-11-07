@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-function ClozeQuestion() {
-  let question = ["The", "quick", "brown", "fox", "", "over", "the", "", "dog"];
-  let blanks = [4, 8];
+function FormCloze({ data }) {
+  // console.log("cloze data ", data);
+  let question = data.question;
+  let blanks = data.blanks;
+  let itm = data.question.filter((it, index) => blanks.includes(index));
+  // console.log("itm are ", itm);
+  // console.log("intial question is ", question);
   const [sblanks, SetSblanks] = useState(blanks);
   const [questions, setQuestions] = useState(question);
-  const [items, setItems] = useState(["jumps", "dog"]);
-
+  const [items, setItems] = useState(itm);
+  const [submit, setSubmit] = useState(false);
   const onDragEnd = (result) => {
     if (!result.destination) return;
     const { source, destination } = result;
-    console.log("source ", source.index);
+    // console.log("source ", source.index);
 
     const destindex = Number(destination.droppableId);
     const item = items[source.index];
@@ -18,14 +22,23 @@ function ClozeQuestion() {
     // console.log("dest ", destindex);
     // console.log("blankIndex is ", blankIndex);
     // console.log("blanks before update ", sblanks);
-    sblanks.splice(blankIndex, 1);
+    let tmp = [...sblanks];
+    tmp.splice(blankIndex, 1);
+    // sblanks.splice(blankIndex, 1);
+    SetSblanks(tmp);
+
     let newquestions = [...questions];
     newquestions[destindex] = item;
-    console.log(newquestions);
+    // console.log(newquestions);
     // console.log("updated blanks ", sblanks);
+    let tmp2 = [...items];
+    tmp2.splice(source.index, 1);
+    setItems(tmp2);
+    // items.splice(source.index, 1);
     setQuestions(newquestions);
   };
-  console.log("qstate ", questions);
+  // console.log("qstate ", questions);
+  // console.log("items ", items);
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <h1>Cloze Question</h1>
@@ -81,17 +94,34 @@ function ClozeQuestion() {
         </span>
       ))}
 
-      <button
-        onClick={() => {
-          SetSblanks(blanks);
-          setQuestions(question);
-        }}
-      >
-        Reset
-      </button>
-      <button>Submit</button>
+      {!submit && (
+        <>
+          <button
+            onClick={() => {
+              // console.log("reset start");
+              // console.log("blanks",blank)
+              SetSblanks(blanks);
+              setQuestions(question);
+              setItems(itm);
+            }}
+          >
+            Reset
+          </button>
+          <button
+            onClick={() => {
+              // console.log("submit start");
+              SetSblanks([]);
+              setQuestions([]);
+              setItems([]);
+              setSubmit(true);
+            }}
+          >
+            Submit
+          </button>
+        </>
+      )}
     </DragDropContext>
   );
 }
 
-export default ClozeQuestion;
+export default FormCloze;

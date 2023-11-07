@@ -1,0 +1,9 @@
+.failure-message {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: tomato;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+}

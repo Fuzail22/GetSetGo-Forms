@@ -10,18 +10,18 @@ function Form() {
   const formparams = useParams();
   const formId = formparams.id;
   const [formDetails, setFormDetails] = useState(null);
-  console.log("formid is ", formId);
+  // console.log("formid is ", formId);
   useEffect(() => {
     axios
       .get(`https://getsetgoforms.onrender.com/form/${formId}`)
       .then((response) => {
-        // console.log("response ", response.data);
+        console.log("response ", response.data);
         setFormDetails(response.data[0]);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  console.log("formdetails ", formDetails);
+  // console.log("formdetails ", formDetails);
   return (
     formDetails && (
       <div className="TestForm">
@@ -32,15 +32,15 @@ function Form() {
           <FormCategory data={formDetails.category} />
         </div>
         <div className="FormSection QuestionContainer">
-          <FormCloze />
+          <FormCloze data={formDetails.cloze} />
         </div>
         <div className="FormSection QuestionContainer">
-          <FormMCQ />
+          <FormMCQ data={formDetails.comprehension} />
         </div>
         <button
           className="SubmitButton"
           onClick={() => {
-            navigate("testComplete");
+            navigate("/testComplete");
             // axios
             //   .put("/submitTest")
             //   .then((response) => console.log(response))

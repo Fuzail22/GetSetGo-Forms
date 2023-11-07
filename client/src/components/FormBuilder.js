@@ -9,6 +9,8 @@ import { addSelectedForm } from "../features/form/SelectedFormSlice";
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import SuccessMessage from "./SuccessMessage";
+import FailureMessage from "./FailureMessage";
 function FormBuilder() {
   const [forms, setForms] = useState([]);
   const testName = useRef(null);
@@ -26,6 +28,20 @@ function FormBuilder() {
   const selectedFormId = useSelector(
     (state) => state.SelectedFormReducer.selectedForm.id
   );
+  const [isSuccessVisible, setIsSuccessVisible] = useState(false);
+  function showSuccessMessage() {
+    setIsSuccessVisible(true);
+    setTimeout(() => {
+      setIsSuccessVisible(false);
+    }, 5000);
+  }
+  const [isFailureVisible, setIsFailureVisible] = useState(false);
+  function showFailureMessage() {
+    setIsFailureVisible(true);
+    setTimeout(() => {
+      setIsFailureVisible(false);
+    }, 5000);
+  }
   useEffect(() => {
     axios
       .get("https://getsetgoforms.onrender.com/forms")
@@ -37,6 +53,9 @@ function FormBuilder() {
   return (
     <div className="FormBuilderContainer">
       <select onChange={handleChange}>
+        <option key="default" value="" hidden>
+          Select a form
+        </option>
         {forms.map((log, index) => (
           <option key={log._id} value={log._id}>
             {log.name}
@@ -98,15 +117,28 @@ function FormBuilder() {
               questions: questions,
             },
           };
-          console.log(formData);
+          // console.log(formData);
+
           axios
             .post("https://getsetgoforms.onrender.com/", formData)
-            .then((response) => console.log(response))
-            .catch((err) => console.log(err));
+            .then((response) => {
+              console.log(response);
+              showSuccessMessage();
+            })
+            .catch((err) => {
+              console.log(err);
+              showFailureMessage();
+            });
         }}
       >
         Create Form
       </button>
+      {isSuccessVisible && (
+        <SuccessMessage message="Form Submitted Successfully" />
+      )}
+      {isFailureVisible && (
+        <FailureMessage message="Error Submitting Form, check console" />
+      )}
     </div>
   );
 }
