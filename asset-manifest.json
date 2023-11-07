@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/GetSetGo-Forms/static/css/main.12a8dae9.css",
+    "main.js": "/GetSetGo-Forms/static/js/main.177a5108.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/GetSetGo-Forms/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/GetSetGo-Forms/index.html",
+    "main.12a8dae9.css.map": "/GetSetGo-Forms/static/css/main.12a8dae9.css.map",
+    "main.177a5108.js.map": "/GetSetGo-Forms/static/js/main.177a5108.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/GetSetGo-Forms/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12a8dae9.css",
+    "static/js/main.177a5108.js"
+  ]
+}
